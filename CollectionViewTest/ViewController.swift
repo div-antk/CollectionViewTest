@@ -14,12 +14,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         let nib = UINib(nibName: "CollectionViewCell", bundle: Bundle.main)
         
         collectionView.register(nib, forCellWithReuseIdentifier: "cardCell")
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 400, height: 150)
+        collectionView.collectionViewLayout = layout
     }
 
     // セクションの数
