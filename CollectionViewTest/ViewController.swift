@@ -22,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.register(nib, forCellWithReuseIdentifier: "cardCell")
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 400, height: 150)
+        layout.itemSize = CGSize(width: 400, height: 500)
         collectionView.collectionViewLayout = layout
     }
 

@@ -9,9 +9,22 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var mainCard: UIView!
+    
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // 角丸
+        mainCard.layer.cornerRadius = 12
+        
+        // 影
+        mainCard.layer.shadowColor = UIColor.black.cgColor
+        mainCard.layer.shadowOpacity = 0.5
+        mainCard.layer.shadowRadius = 8
+        mainCard.layer.shadowOffset = CGSize(width: 4, height: 4)
+        
     }
 
 }
