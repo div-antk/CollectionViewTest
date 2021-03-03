@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jj8-eY-ujh">
-                                <rect key="frame" x="215" y="69" width="11" height="21"/>
+                                <rect key="frame" x="31" y="69" width="195" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -65,12 +65,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uk1-0C-dpm">
+                        <rect key="frame" x="40" y="251" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.95411711929999998" green="0.54454076289999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="401" height="502"/>
             <connections>
+                <outlet property="beCircle" destination="uk1-0C-dpm" id="d3Z-Nc-Njk"/>
                 <outlet property="mainCard" destination="6NX-vp-Nq7" id="egZ-QV-m6o"/>
                 <outlet property="progress" destination="jj8-eY-ujh" id="gIe-Fm-W2n"/>
                 <outlet property="progressBar" destination="Aqh-Rm-dOo" id="QSn-XN-Fl7"/>

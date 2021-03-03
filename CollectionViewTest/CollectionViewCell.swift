@@ -14,11 +14,14 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var progress: UILabel!
+    @IBOutlet weak var beCircle: UIButton!
     
-    var count = 0
+    var count: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        beCircle.layer.cornerRadius = 50
         
         // 角丸
         mainCard.layer.cornerRadius = 12
@@ -32,7 +35,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         // プログレスバー
         // 進捗の割合の設定（0.0～1.0 ）とアニメーションの有無
-        progressBar.setProgress(Float(count), animated: true)
+        progressBar.setProgress(0, animated: true)
         
         // スタイル
         progressBar.progressViewStyle = .default
@@ -45,6 +48,16 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBAction func buttonAction(_ sender: Any) {
         
-        progressBar.setProgress(progressBar.progress + 0.1, animated: true)
+        count += 1000
+
+        let per: Float = Float(50000 / count) * 0.01
+        
+        progress.text = String(count)
+        
+//        let progressCount += 0.1
+        
+        progressBar.setProgress(progressBar.progress + per, animated: true)
+        
+        
     }
 }
