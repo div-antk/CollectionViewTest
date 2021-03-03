@@ -13,7 +13,9 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var progressBar: UIProgressView!
     
-    var count = 0.0
+    @IBOutlet weak var progress: UILabel!
+    
+    var count = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,23 +31,20 @@ class CollectionViewCell: UICollectionViewCell {
         
         
         // プログレスバー
-        let progressBar = UIProgressView(progressViewStyle: .default)
-        
-        // 進捗の割合（0.0～1.0）
-//        progressBar.progress = 1.0
-        
         // 進捗の割合の設定（0.0～1.0 ）とアニメーションの有無
         progressBar.setProgress(Float(count), animated: true)
         
         // スタイル
-        progressBar.progressViewStyle = .bar
+        progressBar.progressViewStyle = .default
         
-        // バーの色を取得
+        // 進捗バーの色
+        progressBar.progressTintColor = UIColor.orange
+        
     }
 
     
     @IBAction func buttonAction(_ sender: Any) {
         
-        
+        progressBar.setProgress(progressBar.progress + 0.1, animated: true)
     }
 }
