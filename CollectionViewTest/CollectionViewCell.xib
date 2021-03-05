@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6NX-vp-Nq7">
                         <rect key="frame" x="0.0" y="0.0" width="360" height="180"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aqh-Rm-dOo">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aqh-Rm-dOo">
                                 <rect key="frame" x="31" y="57" width="280" height="4"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmT-21-5xq">
@@ -43,14 +43,8 @@
                                     <action selector="buttonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Pj8-Yu-gxn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jj8-eY-ujh">
-                                <rect key="frame" x="229" y="69" width="10.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oI5-XD-IVd">
-                                <rect key="frame" x="256.5" y="69" width="54.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jj8-eY-ujh">
+                                <rect key="frame" x="190.5" y="69" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -63,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-HY-rLc">
-                                <rect key="frame" x="246" y="68" width="5" height="21"/>
+                                <rect key="frame" x="249" y="68" width="5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -74,11 +68,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oI5-XD-IVd">
+                                <rect key="frame" x="259.5" y="69" width="51.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6RG-HY-rLc" firstAttribute="top" secondItem="Aqh-Rm-dOo" secondAttribute="bottom" constant="7" id="0zv-jZ-xt4"/>
                             <constraint firstItem="m8w-xf-emF" firstAttribute="leading" secondItem="6NX-vp-Nq7" secondAttribute="leading" constant="56" id="1hf-Cp-Was"/>
+                            <constraint firstAttribute="trailing" secondItem="Aqh-Rm-dOo" secondAttribute="trailing" constant="49" id="3pC-fh-jN2"/>
                             <constraint firstItem="6RG-HY-rLc" firstAttribute="leading" secondItem="jj8-eY-ujh" secondAttribute="trailing" constant="6.5" id="7Ao-ql-FBD"/>
                             <constraint firstItem="jj8-eY-ujh" firstAttribute="top" secondItem="Aqh-Rm-dOo" secondAttribute="bottom" constant="8" symbolic="YES" id="9c1-o2-QBu"/>
                             <constraint firstAttribute="height" constant="180" id="C9X-Hc-3VE"/>
@@ -89,6 +90,7 @@
                             <constraint firstItem="Aqh-Rm-dOo" firstAttribute="top" secondItem="t2Y-J4-8U3" secondAttribute="bottom" constant="14" id="IeN-bi-w3G"/>
                             <constraint firstItem="H6R-jr-hKN" firstAttribute="top" secondItem="oI5-XD-IVd" secondAttribute="bottom" constant="12" id="M88-vD-tsS"/>
                             <constraint firstItem="oI5-XD-IVd" firstAttribute="top" secondItem="Aqh-Rm-dOo" secondAttribute="bottom" constant="8" symbolic="YES" id="V4P-Vr-LgC"/>
+                            <constraint firstItem="Aqh-Rm-dOo" firstAttribute="trailing" secondItem="oI5-XD-IVd" secondAttribute="trailing" id="a8b-oZ-NBR"/>
                             <constraint firstItem="m8w-xf-emF" firstAttribute="top" secondItem="Aqh-Rm-dOo" secondAttribute="bottom" constant="21" id="aB9-yN-0Bs"/>
                             <constraint firstItem="Aqh-Rm-dOo" firstAttribute="leading" secondItem="6NX-vp-Nq7" secondAttribute="leading" constant="31" id="cTA-FP-sKX"/>
                             <constraint firstItem="t2Y-J4-8U3" firstAttribute="leading" secondItem="6NX-vp-Nq7" secondAttribute="leading" constant="31" id="ePw-36-bBI"/>
@@ -108,8 +110,9 @@
             </constraints>
             <size key="customSize" width="361" height="182"/>
             <connections>
+                <outlet property="leftLabel" destination="jj8-eY-ujh" id="EE3-0Y-gbH"/>
                 <outlet property="mainCard" destination="6NX-vp-Nq7" id="egZ-QV-m6o"/>
-                <outlet property="progress" destination="jj8-eY-ujh" id="gIe-Fm-W2n"/>
+                <outlet property="maxLabel" destination="oI5-XD-IVd" id="g5G-55-SaP"/>
                 <outlet property="progressBar" destination="Aqh-Rm-dOo" id="QSn-XN-Fl7"/>
             </connections>
             <point key="canvasLocation" x="145" y="39"/>

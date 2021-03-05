@@ -10,41 +10,29 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var mainCard: UIView!
-    
     @IBOutlet weak var progressBar: UIProgressView!
     
-    @IBOutlet weak var progress: UILabel!
-    
-    var count: Int = 0
+    @IBOutlet weak var leftLabel: UILabel!
+    @IBOutlet weak var maxLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
                 
         // 角丸
         mainCard.layer.cornerRadius = 12
-        
+
         // プログレスバー
-        // 進捗の割合の設定（0.0～1.0 ）とアニメーションの有無
-        progressBar.setProgress(0, animated: true)
-        
+        // 進捗率の計算
+        let progress = Float(leftLabel.text!)! / Float(maxLabel.text!)!
         // 進捗バーの色
         progressBar.progressTintColor = UIColor.orange
-        
+        // 進捗の割合の設定（0.0～1.0）とアニメーションの有無
+        progressBar.setProgress(progress, animated: true)
     }
 
     
     @IBAction func buttonAction(_ sender: Any) {
         
-        count += 1000
-
-        let per: Float = Float(50000 / count) * 0.01
-        
-        progress.text = String(count)
-        
-//        let progressCount += 0.1
-        
-        progressBar.setProgress(progressBar.progress + per, animated: true)
-        
-        
+//        leftLabel.text as! Int += 1000
     }
 }
