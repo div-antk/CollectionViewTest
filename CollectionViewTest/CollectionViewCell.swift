@@ -14,31 +14,18 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var progress: UILabel!
-    @IBOutlet weak var beCircle: UIButton!
     
     var count: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        beCircle.layer.cornerRadius = 50
-        
+                
         // 角丸
         mainCard.layer.cornerRadius = 12
-        
-        // 影
-        mainCard.layer.shadowColor = UIColor.black.cgColor
-        mainCard.layer.shadowOpacity = 0.5
-        mainCard.layer.shadowRadius = 8
-        mainCard.layer.shadowOffset = CGSize(width: 4, height: 4)
-        
         
         // プログレスバー
         // 進捗の割合の設定（0.0～1.0 ）とアニメーションの有無
         progressBar.setProgress(0, animated: true)
-        
-        // スタイル
-        progressBar.progressViewStyle = .default
         
         // 進捗バーの色
         progressBar.progressTintColor = UIColor.orange
