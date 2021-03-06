@@ -30,7 +30,6 @@ class CollectionViewCell: UICollectionViewCell {
         progressBar.setProgress(progress, animated: true)
     }
 
-    
     @IBAction func buttonAction(_ sender: Any) {
         
 //        leftLabel.text as! Int += 1000

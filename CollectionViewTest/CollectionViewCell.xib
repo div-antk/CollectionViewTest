@@ -115,7 +115,7 @@
                 <outlet property="maxLabel" destination="oI5-XD-IVd" id="g5G-55-SaP"/>
                 <outlet property="progressBar" destination="Aqh-Rm-dOo" id="QSn-XN-Fl7"/>
             </connections>
-            <point key="canvasLocation" x="145" y="39"/>
+            <point key="canvasLocation" x="144.92753623188406" y="38.839285714285715"/>
         </collectionViewCell>
     </objects>
     <resources>
