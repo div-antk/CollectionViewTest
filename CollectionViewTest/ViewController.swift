@@ -18,8 +18,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         
         let nib = UINib(nibName: "CollectionViewCell", bundle: Bundle.main)
+        let secondNib = UINib(nibName: "CollectionViewCell2", bundle: Bundle.main)
+
         
         collectionView.register(nib, forCellWithReuseIdentifier: "cardCell")
+        collectionView.register(secondNib, forCellWithReuseIdentifier: "buttonsCell")
+
     }
 
     // セクションの数
@@ -30,7 +34,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CollectionViewCell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CollectionViewCell
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "buttonsCell", for: indexPath) as! CollectionViewCell2
+
         
         // 影
         cell.layer.masksToBounds = false
