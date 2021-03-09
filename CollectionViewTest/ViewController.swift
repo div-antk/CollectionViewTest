@@ -38,9 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        print(indexPath)
-        
+                
         switch (indexPath.section) {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CollectionViewCell
@@ -56,9 +54,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
         case 1:
             return collectionView.dequeueReusableCell(withReuseIdentifier: "buttonsCell", for: indexPath) as! CollectionViewCell2
-        default: 
-            
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CollectionViewCell
+        default:
+            return UICollectionViewCell()
         }
     }
 }
@@ -67,7 +64,16 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: view.frame.width - 32, height: 200)
+        switch (indexPath.section) {
+        case 0:
+            return CGSize(width: view.frame.width - 80, height: 200)
+            
+        case 1:
+            return CGSize(width: view.frame.width, height: 400)
+
+        default:
+            return CGSize(width: 0, height: 0)
+        }
     }
     
     // 外枠の余白
