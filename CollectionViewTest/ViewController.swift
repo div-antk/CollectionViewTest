@@ -19,10 +19,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let nib = UINib(nibName: "CollectionViewCell", bundle: Bundle.main)
         let secondNib = UINib(nibName: "CollectionViewCell2", bundle: Bundle.main)
-
+        let imageNib = UINib(nibName: "ImageCollectionViewCell", bundle: Bundle.main)
         
         collectionView.register(nib, forCellWithReuseIdentifier: "cardCell")
         collectionView.register(secondNib, forCellWithReuseIdentifier: "buttonsCell")
+        collectionView.register(imageNib, forCellWithReuseIdentifier: "imageCell")
 
     }
 
@@ -34,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // セクションの総数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,6 +55,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
         case 1:
             return collectionView.dequeueReusableCell(withReuseIdentifier: "buttonsCell", for: indexPath) as! CollectionViewCell2
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+            
+//            let imageData:UIImage = UIImage(named:"banner1")!
+            cell.imageView.image = UIImage(named: "banner1")!
+            
+            return cell
+
+        case 3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+            
+            cell.imageView.image = UIImage(named: "banner2")!
+
+            return cell
+
+        case 4:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+            
+            cell.imageView.image = UIImage(named: "banner3")!
+
+            return cell
+
         default:
             return UICollectionViewCell()
         }
@@ -69,7 +92,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: view.frame.width - 80, height: 200)
             
         case 1:
-            return CGSize(width: view.frame.width, height: 400)
+            return CGSize(width: view.frame.width, height: 200)
+        case 2:
+            return CGSize(width: view.frame.width, height: 200)
+        case 3:
+            return CGSize(width: view.frame.width, height: 200)
+        case 4:
+            return CGSize(width: view.frame.width, height: 200)
 
         default:
             return CGSize(width: 0, height: 0)
