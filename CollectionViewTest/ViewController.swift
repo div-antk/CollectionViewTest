@@ -78,11 +78,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         
         switch (indexPath.section) {
         case 0:
-            return CGSize(width: view.frame.width - 80, height: 200)
+            return CGSize(width: view.frame.width - 32, height: 200)
         case 1:
-            return CGSize(width: view.frame.width, height: 200)
+            return CGSize(width: view.frame.width - 32, height: 200)
         case 2:
-            return CGSize(width: view.frame.width, height: 200)
+            return CGSize(width: view.frame.width - 300, height: images[indexPath.row]!.size.height / 2)
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -92,5 +92,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 }
