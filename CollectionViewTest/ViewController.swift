@@ -11,6 +11,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let images = [UIImage(named: "banner1"), UIImage(named: "banner2"), UIImage(named: "banner3")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,18 +26,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.register(nib, forCellWithReuseIdentifier: "cardCell")
         collectionView.register(secondNib, forCellWithReuseIdentifier: "buttonsCell")
         collectionView.register(imageNib, forCellWithReuseIdentifier: "imageCell")
-
     }
 
     // セクションの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        if section == 2 {
+            return 3
+        }
         return 1
     }
     
     // セクションの総数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,23 +62,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
             
-//            let imageData:UIImage = UIImage(named:"banner1")!
-            cell.imageView.image = UIImage(named: "banner1")!
+            cell.imageView.image = images[indexPath.row]
             
-            return cell
-
-        case 3:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
-            
-            cell.imageView.image = UIImage(named: "banner2")!
-
-            return cell
-
-        case 4:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
-            
-            cell.imageView.image = UIImage(named: "banner3")!
-
             return cell
 
         default:
@@ -90,16 +79,10 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         switch (indexPath.section) {
         case 0:
             return CGSize(width: view.frame.width - 80, height: 200)
-            
         case 1:
             return CGSize(width: view.frame.width, height: 200)
         case 2:
             return CGSize(width: view.frame.width, height: 200)
-        case 3:
-            return CGSize(width: view.frame.width, height: 200)
-        case 4:
-            return CGSize(width: view.frame.width, height: 200)
-
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -108,6 +91,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     // 外枠の余白
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
     }
 }
