@@ -6,15 +6,38 @@
 //
 
 import UIKit
+import Parchment
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     let images = [UIImage(named: "banner1"), UIImage(named: "banner2"), UIImage(named: "banner3")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        let firstViewController = storyboard?.instantiateViewController(identifier: "First")
+//        let secondViewController = storyboard?.instantiateViewController(identifier: "Second")
+//
+//        firstViewController?.title = "ichi"
+//        secondViewController?.title = "nee"
+//
+//        let pagingViewController = PagingViewController(viewControllers: [
+//            firstViewController!,
+//            secondViewController!
+//        ])
+//
+//        addChild(pagingViewController)
+//        view.addSubview(pagingViewController.view)
+//        pagingViewController.didMove(toParent: self)
+//        pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
+//
+//        pagingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+//        pagingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+//        pagingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+//        pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -27,7 +50,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.register(secondNib, forCellWithReuseIdentifier: "buttonsCell")
         collectionView.register(imageNib, forCellWithReuseIdentifier: "imageCell")
     }
-
+    
     // セクションの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -43,7 +66,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                
+        
         switch (indexPath.section) {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as! CollectionViewCell
@@ -56,7 +79,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.layer.shadowOffset = CGSize(width: 2, height: 2)
             
             return cell
-
+            
         case 1:
             return collectionView.dequeueReusableCell(withReuseIdentifier: "buttonsCell", for: indexPath) as! CollectionViewCell2
         case 2:
@@ -65,7 +88,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.imageView.image = images[indexPath.row]
             
             return cell
-
+            
         default:
             return UICollectionViewCell()
         }
