@@ -14,8 +14,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let images = [UIImage(named: "banner1"), UIImage(named: "banner2"), UIImage(named: "banner3")]
     
+//    private var vcs: [UIViewController] {
+//        return contentsList.map { ItemController(list: $0.list) }
+//    }
+//
+//    private var titles: [String]  = [
+//        "First",
+//        "Second",
+//        "Third"
+//    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
 //        let firstViewController = storyboard?.instantiateViewController(identifier: "First")
@@ -95,6 +106,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 }
 
+// StoryboardのEstimate Sizeは "None" にしておく
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -105,7 +117,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         case 1:
             return CGSize(width: view.frame.width - 32, height: 200)
         case 2:
-            return CGSize(width: view.frame.width - 300, height: images[indexPath.row]!.size.height / 2)
+            return CGSize(width: view.frame.width - 32, height: images[indexPath.row]!.size.height)
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -125,3 +137,18 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         return 20
     }
 }
+
+//extension ViewController: PagingViewControllerDataSource {
+//    func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
+//        return 10
+//    }
+
+//    func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
+//        return ChildViewController(index: index)
+//    }
+//
+//    func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
+//        return PagingTitleItem(title: "View \(index)", index: index)
+//    }
+//}
+
