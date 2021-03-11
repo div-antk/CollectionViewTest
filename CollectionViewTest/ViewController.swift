@@ -14,41 +14,56 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let images = [UIImage(named: "banner1"), UIImage(named: "banner2"), UIImage(named: "banner3")]
     
-//    private var vcs: [UIViewController] {
-//        return contentsList.map { ItemController(list: $0.list) }
-//    }
-//
-//    private var titles: [String]  = [
-//        "First",
-//        "Second",
-//        "Third"
-//    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let firstViewController = UIViewController()
+        let secondViewController = UIViewController()
+
+        firstViewController.title = "First"
+        secondViewController.title = "Second"
+
+        let pagingViewController = PagingViewController(viewControllers: [
+            firstViewController,
+            secondViewController
+        ])
+
+        addChild(pagingViewController)
+        view.addSubview(pagingViewController.view)
+        pagingViewController.didMove(toParent: self)
+        pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
+
+        pagingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        pagingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        pagingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         
-//        let firstViewController = storyboard?.instantiateViewController(identifier: "First")
-//        let secondViewController = storyboard?.instantiateViewController(identifier: "Second")
 //
-//        firstViewController?.title = "ichi"
-//        secondViewController?.title = "nee"
-//
-//        let pagingViewController = PagingViewController(viewControllers: [
-//            firstViewController!,
-//            secondViewController!
+        // インスタンスを作成して先程作ったVCの配列を入れ込む
+//        let pagingVC = PagingViewController(viewControllers: vcs)
+//        // それをChildViewControllerに入れる
+//        addChild(pagingVC)
+//        view.addSubview(pagingVC.view)
+//        pagingVC.didMove(toParent: self)
+//        pagingVC.view.translatesAutoresizingMaskIntoConstraints = false
+
+        // メニューアイテムの色設定
+//        pagingVC.selectedBackgroundColor = .clear
+//        pagingVC.indicatorColor = .green
+//        pagingVC.textColor = .white
+//        pagingVC.selectedTextColor = .green
+//        pagingVC.menuBackgroundColor = .clear
+//        pagingVC.borderColor = .clear
+
+
+        
+//        NSLayoutConstraint.activate([
+//            pagingVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            pagingVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            pagingVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            pagingVC.view.topAnchor.constraint(equalTo: view.topAnchor)
 //        ])
-//
-//        addChild(pagingViewController)
-//        view.addSubview(pagingViewController.view)
-//        pagingViewController.didMove(toParent: self)
-//        pagingViewController.view.translatesAutoresizingMaskIntoConstraints = false
-//
-//        pagingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-//        pagingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-//        pagingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-//        pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -60,6 +75,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.register(nib, forCellWithReuseIdentifier: "cardCell")
         collectionView.register(secondNib, forCellWithReuseIdentifier: "buttonsCell")
         collectionView.register(imageNib, forCellWithReuseIdentifier: "imageCell")
+    }
+    
+    func isPagingVCScrollEnabled(isEnabled: Bool) {
+        
+            let tabbar = UIApplication.shared.keyWindow?.rootViewController
+            // タブバーの場所を指定
+            let nvc = tabbar?.children[0]
+            // ナビバーのルート
+            let base = nvc?.children[0]
+            // PagingViewController にアクセスしてVCを取得
+            let pvc = base?.children[0] as! PagingViewController
+            // PageViewController のsubviewにアクセスしてスクロールの活性・非活性を指定
+            for view in pvc.pageViewController.view.subviews {
+                if let subView = view as? UIScrollView {
+                    subView.isScrollEnabled = isEnabled
+                }
+            }
     }
     
     // セクションの数
